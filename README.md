@@ -53,7 +53,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Project Link: [https://github.com/sub-ra/xlsx-to-md-table](https://github.com/sub-ra/xlsx-to-md-table)
+Project Link: [https://github.com/sub-ra/xlsx-to-mdtable](https://github.com/sub-ra/xlsx-to-mdtable)
 
 ## Acknowledgements
 
