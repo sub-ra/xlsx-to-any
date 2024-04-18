@@ -12,28 +12,18 @@ This Python tool converts Excel spreadsheets (`.xlsx` files) into multiple forma
 
 ## Prerequisites
 
-Before running this tool, ensure you have the following libraries installed:
-
-```bash
-pip install -r requirements.txt
-```
-
-This command installs the following libraries:
-
-- `openpyxl` for reading Excel files.
-- `tabulate` for generating tables in different formats.
-- `PyYAML` for generating YAML files.
-- `pandas` for handling data.
+TBD
 
 Please note that `tkinter`, which is used for the GUI interface, is part of the Python standard library and might not be included by default on some systems. If you're using a system where `tkinter` isn't included by default, you'll need to install it using your system's package manager.
 
 ## Installation
+To set up this tool: TBD
 
-To set up this tool, clone the repository or download the source code:
+To clone the repository or download the source code:
 
 ```bash
 git clone https://github.com/yourusername/xlsx-to-any.git
-cd xlsx-to-mdtable
+cd xlsx-to-any
 ```
 
 ## Usage
