@@ -21,8 +21,8 @@ Before running this tool, ensure you have the following libraries installed:
 To set up this tool, clone the repository or download the source code:
 
 ```bash
-git clone https://github.com/yourusername/xlsx-to-md-table.git
-cd xlsx-to-md-table
+git clone https://github.com/yourusername/xlsx-to-mdtable.git
+cd xlsx-to-mdtable
 ```
 
 ## Usage
