@@ -33,7 +33,9 @@ def open_file_dialog():
     )
     if file_path:
         process_workbook(file_path)
-
+    else:
+        sys.exit()
+        
 # Function to process the selected Excel file
 def process_workbook(file_path):
     try:
