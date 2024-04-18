@@ -2,6 +2,8 @@
 
 This Python tool converts Excel spreadsheets (`.xlsx` files) into multiple formats, including Markdown, HTML, CSV, JSON, and others, facilitating the transfer of Excel tables into various environments. It's designed to be an open-source project, where contributions for improvements and extensions are welcome.
 
+![GUI](https://github.com/sub-ra/xlsx-to-any/assets/87712870/8f417c9c-d10e-4941-b3ae-4d4541b1e378)
+
 ## Features
 
 - Converts each Excel worksheet into a variety of formats: Markdown, HTML, CSV, JSON, YAML, XML, Plain Text, Jira, MediaWiki.
