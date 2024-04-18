@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "xlsx_to_any"
+version = "1.0.0"
+description = "Conveter XLSX to Any"
+authors = ["ssu"]
+
+[tool.poetry.scripts]
+xlsx_to_any = 'xlsx_to_any.xlsx_to_any:main'
+
+# Abhängigkeiten
+[tool.poetry.dependencies]
+python = "^3.9"
+openpyxl = "*"
+tabulate = "*"
+pyyaml = "*"
+pandas = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
