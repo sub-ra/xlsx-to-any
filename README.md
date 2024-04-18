@@ -1,20 +1,21 @@
-# XLSX to MD Table Converter
+# XLSX to Various Formats Converter
 
-This Python tool converts Excel spreadsheets (`.xlsx` files) into separate Markdown (`.md`) files, facilitating the transfer of Excel tables into AI chat environments. It's designed to be an open-source project, where contributions for improvements and extensions are welcome.
+This Python tool converts Excel spreadsheets (`.xlsx` files) into multiple formats, including Markdown, HTML, CSV, JSON, and others, facilitating the transfer of Excel tables into various environments. It's designed to be an open-source project, where contributions for improvements and extensions are welcome.
 
 ## Features
 
-- Converts each Excel worksheet into a separate Markdown file.
-- User-friendly interface for selecting Excel files and worksheets.
-- Option to include or exclude hidden rows and columns in the conversion.
+- Converts each Excel worksheet into a variety of formats: Markdown, HTML, CSV, JSON, YAML, XML, Plain Text, Jira, MediaWiki.
+- User-friendly GUI interface with a dropdown menu to select the desired output format.
+- Supports toggling options to include or exclude hidden rows and columns in the conversion.
 
 ## Prerequisites
 
 Before running this tool, ensure you have the following libraries installed:
 
 - `openpyxl` for reading Excel files.
-- `tabulate` for generating Markdown tables.
+- `tabulate` for generating tables in different formats.
 - `tkinter` for the GUI interface.
+- Other libraries as required for additional formats (e.g., `pyyaml` for YAML, `xml.etree.ElementTree` for XML).
 
 ## Installation
 
@@ -33,6 +34,17 @@ Follow these steps to convert your Excel files:
 2. Select the Excel file you want to convert.
 3. Choose the worksheets you want to convert to Markdown.
 4. Toggle the option to include or exclude hidden rows and columns.
+
+## Supported Output Formats
+- md - Markdown
+- html - HTML
+- csv - CSV
+- json - JSON
+- yaml - YAML
+- xml - XML
+- txt - Plain Text
+- jira - Jira Markdown
+- mediawiki - MediaWiki Markup
 
 ## Contributing
 
