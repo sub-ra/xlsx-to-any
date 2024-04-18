@@ -1,10 +1,18 @@
+# Standard library imports
 import sys
 import os
-import openpyxl
-import tkinter as tk
+import csv
+import json
+import xml.etree.ElementTree as ET
 import warnings
 from tkinter import filedialog, messagebox, ttk
+
+# Related third-party imports
+import openpyxl
+import tkinter as tk
 from tabulate import tabulate
+import yaml
+import pandas as pd
 
 # UserWarning ausblenden 
 warnings.simplefilter(action='ignore', category=UserWarning)
