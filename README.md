@@ -32,7 +32,7 @@ Please note that `tkinter`, which is used for the GUI interface, is part of the 
 To set up this tool, clone the repository or download the source code:
 
 ```bash
-git clone https://github.com/yourusername/xlsx-to-mdtable.git
+git clone https://github.com/yourusername/xlsx-to-any.git
 cd xlsx-to-mdtable
 ```
 
