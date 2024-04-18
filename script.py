@@ -19,7 +19,7 @@ warnings.simplefilter(action='ignore', category=UserWarning)
 
 # Initialize Tkinter
 root = tk.Tk()
-root.title("Excel-to-Mardown-Converter")
+root.title("Excel-to-Any-Converter")
 
 # Terminate the script when the window is closed
 root.bind("<Destroy>", lambda e: sys.exit())
