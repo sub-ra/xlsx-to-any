@@ -98,62 +98,92 @@ def process_workbook(file_path):
     from openpyxl.utils import column_index_from_string
 
     def export_sheets():
-        selected_indices = listbox.curselection()
-        selected_sheets = [listbox.get(i) for i in selected_indices]
-
-        # Check if worksheets were selected
+        selected_sheets = [sheet.get() for sheet in sheet_checkboxes if sheet.get()]
         if not selected_sheets:
             messagebox.showinfo("Information", "Please select worksheets")
             return
 
+        # Dictionary Mapping Formate zu File Extension
+        format_extensions = {"pipe": ".md", "plain": ".txt", "jira": ".txt", "mediawiki": ".txt", "csv": ".csv", "json": ".json", "yaml": ".yaml", "xml": ".xml", "html": ".html"}
+
         for sheet_name in selected_sheets:
-            if sheet_name in workbook.sheetnames:
-                sheet = workbook[sheet_name]
+            data = read_sheet(sheet_name)
 
-                # Collect data
-                data = []
+            # Daten in gewähltes Format konvertieren
+            if selected_format.get() == "xml":
+                output_file_path = f"{sheet_name}.xml"
 
-                for row in sheet.iter_rows(min_row=1, max_col=sheet.max_column, max_row=sheet.max_row):
-                    # Check if column is hidden - if checkbox is active
-                    if export_visible.get() and sheet.row_dimensions[row[0].row].hidden:
-                        continue
-                    row_data = []
-                    for cell in row:
-                        # Check if row is hidden - if checkbox is active
-                        column_dimension = sheet.column_dimensions.get(cell.column_letter)
-                        if not export_visible.get() or (column_dimension is not None and not column_dimension.hidden):
-                            row_data.append(cell.value)
-                    # If row is not empty, transfer to data
-                    if row_data:
-                        data.append(row_data)
-
-                # Convert data to chosen format
-                format_table = tabulate(data, tablefmt=selected_format.get(), headers="firstrow", showindex=False)
-
-                # Dictionary mapping formats to file extensions
-                format_extensions = {"pipe": ".md", "plain": ".txt", "jira": ".txt", "mediawiki": ".txt", "csv": ".csv", "json": ".json", "yaml": ".yaml", "xml": ".xml", "html": ".html"}
-
-                # Get the file extension for the selected format
-                file_extension = format_extensions[selected_format.get()]
-
-                # Path for the Markdown file
-                output_file_path = f"{file_path.rsplit('.', 1)[0]}_{sheet_name}{file_extension}"
-
-                # Check if filename already exists
+                # Check ob Dateiname bereits existiert
                 if os.path.isfile(output_file_path):
                     overwrite = messagebox.askyesno("File already exists", f"The file {output_file_path} already exists. Overwrite?")
                     if not overwrite:
                         return
 
-                # Write the Markdown table into a file
+                root = ET.Element("root")
+
+                for row in data:
+                    row_element = ET.SubElement(root, "row")
+                    for cell in row:
+                        cell_element = ET.SubElement(row_element, "cell")
+                        cell_element.text = str(cell)
+
+                tree = ET.ElementTree(root)
+
                 try:
-                    with open(output_file_path, "w", encoding="utf-8") as f:
-                        f.write(format_table)
+                    tree.write(output_file_path)
                 except Exception as e:
                     messagebox.showinfo("Error", f"Error writing the file {output_file_path}: {str(e)}")
                     return
 
-        # Show success message
+            elif selected_format.get() == "json":
+                output_file_path = f"{sheet_name}.json"
+                
+                # Check ob Dateiname bereits existiert
+                if os.path.isfile(output_file_path):
+                    overwrite = messagebox.askyesno("File already exists", f"The file {output_file_path} already exists. Overwrite?")
+                    if not overwrite:
+                        return
+
+                try:
+                    with open(output_file_path, "w") as f:
+                        json.dump(data, f)
+                except Exception as e:
+                    messagebox.showinfo("Error", f"Error writing the file {output_file_path}: {str(e)}")
+                    return
+
+            elif selected_format.get() == "yaml":
+                output_file_path = f"{sheet_name}.yaml"
+                
+                # Check ob Dateiname bereits existiert
+                if os.path.isfile(output_file_path):
+                    overwrite = messagebox.askyesno("File already exists", f"The file {output_file_path} already exists. Overwrite?")
+                    if not overwrite:
+                        return
+
+                try:
+                    with open(output_file_path, "w") as f:
+                        yaml.dump(data, f)
+                except Exception as e:
+                    messagebox.showinfo("Error", f"Error writing the file {output_file_path}: {str(e)}")
+                    return
+
+            else:
+                output = tabulate(data, tablefmt=selected_format.get())
+                output_file_path = f"{sheet_name}{format_extensions[selected_format.get()]}"
+                
+                # Check ob Dateiname bereits existiert
+                if os.path.isfile(output_file_path):
+                    overwrite = messagebox.askyesno("File already exists", f"The file {output_file_path} already exists. Overwrite?")
+                    if not overwrite:
+                        return
+
+                try:
+                    with open(output_file_path, "w") as f:
+                        f.write(output)
+                except Exception as e:
+                    messagebox.showinfo("Error", f"Error writing the file {output_file_path}: {str(e)}")
+                    return
+
         messagebox.showinfo("Success", "File(s) successfully created.")
         root.quit()
 
