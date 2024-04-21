@@ -7,13 +7,14 @@ authors = ["ssu"]
 [tool.poetry.scripts]
 xlsx_to_any = 'xlsx_to_any.xlsx_to_any:main'
 
-# Abhängigkeiten
+# Dependencies
 [tool.poetry.dependencies]
 python = "^3.9"
 openpyxl = "*"
 tabulate = "*"
 pyyaml = "*"
 pandas = "*"
+tk = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
