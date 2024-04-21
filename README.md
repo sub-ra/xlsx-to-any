@@ -17,7 +17,6 @@ TBD
 Please note that `tkinter`, which is used for the GUI interface, is part of the Python standard library and might not be included by default on some systems. If you're using a system where `tkinter` isn't included by default, you'll need to install it using your system's package manager.
 
 ## Installation
-To set up this tool: TBD
 
 To clone the repository or download the source code:
 
@@ -26,11 +25,22 @@ git clone https://github.com/yourusername/xlsx-to-any.git
 cd xlsx-to-any
 ```
 
+To create a Wheel package from the project, you can use Poetry.
+Install Poetry
+Navigate to the Project Directory via Terminal and run:
+```bash
+poetry build
+```
+Afther that you can install the Wheel Package:
+```bash
+pip install pathtowhlpackage/NAMEOFTHEPACKAGE.whl
+```
+
 ## Usage
 
 Follow these steps to convert your Excel files:
 
-1. Run the script.
+1. Run the script with `xlsx_to_any`
 2. Select the Excel file you want to convert.
 3. Choose the worksheets you want to convert to Markdown.
 4. Toggle the option to include or exclude hidden rows and columns.
