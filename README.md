@@ -13,12 +13,6 @@ This Python tool converts Excel spreadsheets (`.xlsx` files) into multiple forma
 ## Prerequisites
 
 All Prerequisites are in the pyproject.toml
-`Python
-Openpyxl
-tabulate
-pyyaml
-pandas
-tk`
 
 ## Installation
 
